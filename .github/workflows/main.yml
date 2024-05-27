@@ -41,7 +41,7 @@ jobs:
           username: ${{ env.SSH_USERNAME }}
           key: ${{ env.SSH_PRIVATE_KEY }}
           source: "./docker-compose.yml"
-          target: docker-compose.yml
+          target: "docker-compose.yml"
 
       - name: Docker pull and run on host
         uses: appleboy/ssh-action@master
