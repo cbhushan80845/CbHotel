@@ -28,7 +28,7 @@ jobs:
       - name: Build and push Docker image
         id: build-image
         run: |
-          docker-compose up --build
+          docker-compose build
           echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
           docker-compose push
 
