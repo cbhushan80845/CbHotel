@@ -39,7 +39,7 @@ import com.example.demo.response.BookingResponse;
 import com.example.demo.response.RoomResponse;
 import com.example.demo.service.BookingService;
 import com.example.demo.service.RoomServices;
-@CrossOrigin(origins = "http://44.222.81.174:5173")
+@CrossOrigin(origins = "http://54.236.40.66:5173")
 @RestController
 @RequestMapping("/rooms")
 public class RoomController {

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "http://44.214.118.116:9191",
+  baseURL: "http://54.236.40.66:9191",
 });
 
 export const getHeader = () => {
