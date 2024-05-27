@@ -41,7 +41,7 @@ jobs:
           username: ${{ env.SSH_USERNAME }}
           key: ${{ env.SSH_PRIVATE_KEY }}
           source: "./docker-compose.yml"
-          target: "/home/ubuntu/docker-compose.yml" # Ensure full path with file name
+          target: "/home/ubuntu/docker-compose.yml"
 
       - name: Docker pull and run on host
         uses: appleboy/ssh-action@master
