@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./c/Users/Lenovo/OneDrive/Documents/Client/bhushan-hotel
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - app
+
+  app:
+    image: myapp:latest
+    build:
+      context: .\C\Users\Lenovo\OneDrive\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\MicroServices\HotelBooking
+      dockerfile: Dockerfile
+    ports:
+      - "9191:9191"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/hoteldb
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: Cb@64565120
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: hoteldb
+      MYSQL_ROOT_PASSWORD: Cb@64565120
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
