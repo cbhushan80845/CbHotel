@@ -17,13 +17,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Login to Azure
+      - name: Azure Login
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-          client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Login to ACR
         run: |
@@ -31,7 +28,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          cd \Hotelfrontend\bhushan-hotel
+          cd Hotelfrontend/bhushan-hotel
           docker build -t $ACR_LOGIN_SERVER/$IMAGE_NAME:latest .
 
       - name: Push Docker image
